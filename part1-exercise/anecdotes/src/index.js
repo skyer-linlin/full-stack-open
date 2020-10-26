@@ -6,17 +6,33 @@ const Button = ({ handlClick, text }) => (
 );
 const App = (props) => {
   const [selected, setSelected] = useState(0);
+  const [points, setPoints] = useState(Array(anecdotes.length).fill(0));
+  const [max, setMax] = useState(0);
 
-  const random = () => {
-    const index = Math.round(Math.random() * (anecdotes.length - 1));
-    setSelected(index);
-    console.log("after:", index);
+  const handlClick = () => {
+    const random = Math.round(Math.random() * (anecdotes.length - 1));
+    setSelected(random);
+    console.log("after:", random);
+  };
+
+  const vote = () => {
+    const copy = { ...points };
+    copy[selected] += 1;
+    console.log("vote:", copy);
+    setPoints(copy);
+    if (copy[selected] >= copy[max]) {
+      setMax(selected);
+    }
   };
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>{props.anecdotes[selected]}</p>
-      <Button handlClick={random} text="next anecdote" />
+      <Button handlClick={vote} text="vote" />
+      <Button handlClick={handlClick} text="next anecdote" />
+      <h1>Anecdote with most votes</h1>
+      <p>{props.anecdotes[max]}</p>
     </div>
   );
 };
