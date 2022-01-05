@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Header = (props) => {
+const Header = ({course}) => {
   console.log("header component")
-  return (<h1>{props.course}</h1>)
+  return (<h1>{course}</h1>)
 }
 
 const Content = (props) => {
