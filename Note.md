@@ -24,3 +24,9 @@ event 参数是触发对事件处理函数需要调用的event :
 事件处理立即调用 event.preventDefault() 方法，它会阻止提交表单的默认操作。 因为默认操作会导致页面重新加载。
 
 将event.target 中存储的事件的记录到控制台。
+
+## 字符串模板
+
+```javascript
+`${newName} is already added to phonebook`
+```

@@ -19,8 +19,12 @@ const App = () => {
   const addName = (event) => {
     event.preventDefault()
     console.log('button clicked', event.target)
-    //  添加元素到 persons 中
-    setPersons(persons.concat({name: newName}))
+    if (persons.find(p => p.name === newName)) {
+      alert(`${newName} is already added to phonebook`);
+    } else {
+      //  添加元素到 persons 中
+      setPersons(persons.concat({name: newName}));
+    }
   }
 
   return (
