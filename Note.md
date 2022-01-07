@@ -99,3 +99,12 @@ const baseUrl = '/api/notes'
 
 在重新启动之后，React 开发环境将作为一个代理工作。 如果 React 代码对服务器地址http://localhost:3000发出了一个 HTTP 请求，而不是 React
 应用本身管理的地址(即当请求不是为了获取应用的 CSS 或 JavaScript) ，那么该请求将被重定向到 HTTP://localhost:3001 的服务器。
+
+## mongodb
+
+```javascript
+module.exports = mongoose.model('Note', noteSchema)
+```
+
+模块的公共接口是通过将值设置为 module.exports 变量来定义的。 我们将该值设置为Note 模型。 模块内部定义的其他东西，比如变量 mongoose 和 url
+对于模块的用户来说是不可访问的或者不可见的。

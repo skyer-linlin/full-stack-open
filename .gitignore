@@ -41,3 +41,5 @@ yarn-error.log*
 /.changelog
 .npm/
 dist
+!/sensitiveData.json5
+!/part3/.env
